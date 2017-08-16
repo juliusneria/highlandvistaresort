@@ -1,0 +1,150 @@
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,300,400,400i,500,600,700,800');
+
+html,body,div,p,a,button,input,select,textarea, h1,h2,h3,h4,h5,h6,ul,li{
+    color: #726277;
+    font-weight: normal;
+    font-family: 'Raleway',sans-serif;
+}
+
+.max-container-width{
+    max-width: 1274px;
+}
+.container-width{
+    max-width: 981px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.inner-container-width{
+
+    max-width: 858px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.navigation{
+    background-color: #ffffff;
+    height: 110px;
+    z-index:100;
+    position: relative;
+}
+.navigation ul{
+    padding: 45px;
+    list-style: none;
+    margin-bottom: 0;
+}
+.navigation ul li{
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.navigation ul li a{
+    font-size: 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    color: #726277;
+    padding: 4px 25px 4px 25px;
+    text-decoration:none;
+}
+
+.navigation li a:hover, .navigation .uk-active a{
+    background-color:#eae5eb;
+    text-decoration: none;
+}
+/**.navigation>div li:last-child  a , a:hover {
+    padding: 0px;
+    background-color:transparent;
+    font-size: 16px;
+}**/
+.logo{
+    margin-top: 22px;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.logo:hover{
+    text-decoration: none;
+}
+
+.uk-offcanvas-bar{
+    background-color: #ffffff;
+    font-size:12px;
+    color:#726277;
+}
+
+
+h1{ font-size: 52px;}
+h2{ font-size: 30px;}
+h3{ font-size: 18px;}
+h4{ font-size: 14px;}
+h5{ font-size: 12px;}
+
+.text-normal{
+    font-size: 14px;}
+
+.text-dark {
+    color:#726277;
+}
+.text-white{
+    color:#ffffff;
+}
+.text-gray {
+   color:#a6a4ca;
+}
+
+.feature-slider ul img{
+    height:189px;
+}
+
+.aleft{
+    left: -60px;
+    display:block!important;
+}
+.aright{
+    right: -60px;
+    display:block!important;
+}
+
+ .activities{
+     height:187px;
+     width:100%;
+}
+ .act-logo{
+     width: 42px;
+     height:39px;
+     border-right: 1px dashed;
+
+ }
+ .act-desc{
+     font-size:18px;
+     margin: 0 10px 0 10px;
+ }
+.lavender{
+    background-color: #eae5eb;
+}
+
+footer{
+    background-color: #cabdcd;
+}
+@media (max-width: 1136px){
+
+    .container-width{
+    width:100%;
+    }
+    .inner-container-width{
+       width:100%;
+    }
+    .aleft{
+        left: 1px;
+        display:block!important;
+    }
+    .aright{
+        right: 1px;
+        display:block!important;
+    }
+}
