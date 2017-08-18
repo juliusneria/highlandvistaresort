@@ -1,7 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:100,300,400,400i,500,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Basic');
+@import url('https://fonts.googleapis.com/css?family=Cutive+Mono');
 
-html,body,div,p,a,button,input,select,textarea, h1,h2,h3,h4,h5,h6,ul,li{
+html,body,div,p,a,button, h1,h2,h3,h4,h5,h6,ul,li{
     color: #726277;
     font-weight: normal;
     font-family: 'Raleway',sans-serif;
@@ -92,6 +94,8 @@ h5{ font-size: 12px;}
 }
 .text-white{
     color:#ffffff;
+    font-family: 'Basic',sans-serif;
+    font-size:12px;
 }
 .text-gray {
    color:#a6a4ca;
@@ -126,11 +130,61 @@ h5{ font-size: 12px;}
  }
 .lavender{
     background-color: #eae5eb;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 50px 0 50px 0;
 }
 
 footer{
     background-color: #cabdcd;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 50px 0 50px 0;
 }
+.footer-col{
+    padding: 10px 10px 10px 10px;
+    border-right: 1px solid #a798ab;
+}
+
+.hr-dashed{
+    border:none;
+    border-top:1px dashed #a798ab;
+    height:1px;
+}
+footer input {
+    font-family: 'Cutive Mono',sans-serif;
+    height:38px;
+    width:130px;
+    padding:2px 2px 2px 2px;
+    font-size:14px;
+    background-color: #ffffff;
+    border: 1px solid #cabdcd;
+}
+.form-div{
+    padding-left:1px;
+}
+footer textarea {
+    font-family: 'Cutive Mono',sans-serif;
+    height:114px;
+    width:130px;
+    padding:2px 2px 2px 2px;
+    font-size:14px;
+    background-color: #ffffff;
+    border: 1px solid #cabdcd;
+}
+.sendbtn{
+    background-color: #ffffff;
+    border: 1px solid #cabdcd;
+    font-size: 12px;
+    width: 46px;
+    height:29px;
+    cursor:pointer;
+}
+
+
+/**responsive**/
 @media (max-width: 1136px){
 
     .container-width{
@@ -146,5 +200,10 @@ footer{
     .aright{
         right: 1px;
         display:block!important;
+    }
+}
+@media (max-width: 767px) {
+    .form-div{
+        padding-left:20px;
     }
 }
