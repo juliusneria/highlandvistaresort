@@ -1,10 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <meta property="og:image:width" content="1349"/>
+    <meta property="og:image:height" content="352"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image" content=""/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content=""/>
+    <meta property="og:title" content="Highland Vista Resort"/>
     <meta charset="UTF-8">
-    <title></title>
+    <link rel="icon" href="assets/img/favicon.png">
+
+    <title>Highland Vista Resort</title>
+    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/css/uikit.almost-flat.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/css/components/sticky.almost-flat.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/css/components/slideshow.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/css/components/dotnav.almost-flat.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/css/components/slidenav.almost-flat.min.css">
+    -->
+
+    <link rel="stylesheet" href="assets/uikit/css/uikit.almost-flat.min.css"/>
+    <link rel="stylesheet" href="assets/uikit/css/components/sticky.almost-flat.min.css">
+    <link rel="stylesheet" href="assets/uikit/css/components/slideshow.min.css">
+    <link rel="stylesheet" href="assets/uikit/css/components/dotnav.almost-flat.min.css">
+    <link rel="stylesheet" href="assets/uikit/css/components/slidenav.almost-flat.min.css">
+
+    <link rel="stylesheet" href="assets/css/template.css"/>
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!--NAVIGATION -->
+<nav class="uk-width-1-1 uk-panel navigation">
+    <div class="max-container-width uk-container-center">
+        <!-- <a href="index.html" class="uk-float-left logo"><img src="" alt="Highland Vista Resort"/></a>-->
+        <ul class="uk-float-right uk-margin-remove uk-hidden-small uk-hidden-medium">
+            <li>
+                <a href="index.html">HOME</a>
+            </li>
+            <li >
+                <a href="about.html">ABOUT</a>
+            </li>
+            <li>
+                <a href="index.html#facilities">FACILITIES</a>
+            </li>
+            <li>
+                <a href="index.html#activities">ACTIVITIES</a>
+            </li>
+            <li >
+                <a href="about.html#faq">FAQ</a>
+            </li>
+            <li class="uk-active" >
+                <a href="book.html">BOOK NOW</a>
+            </li>
+
+        </ul>
+        <div class="uk-hidden-large uk-float-right uk-margin-large-top">
+            <a href="#offcanvas" data-uk-offcanvas="{mode:'slide'}"><i class="uk-icon-bars uk-margin-right"></i></a>
+        </div>
+    </div>
+</nav>
+<div id="offcanvas" class="uk-offcanvas">
+    <div class="uk-offcanvas-bar uk-offcanvas-bar-flip">
+        <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon " data-uk-nav>
+            <li>
+                <a href="index.html">HOME</a>
+            </li>
+            <li>
+                <a href="about.html">ABOUT</a>
+            </li>
+            <li>
+                <a href="index.html#facilities">FACILITIES</a>
+            </li>
+            <li>
+                <a href="index.html#activities">ACTIVITIES</a>
+            </li>
+            <li>
+                <a href="about.html#faq">FAQ</a>
+            </li>
+            <li class="uk-active">
+                <a href="book.html">BOOK NOW</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--HERO-->
+<div class="uk-width-1-1 uk-panel">
+    <!--<div class="home-banner">
+        <h1 class="inner-container-width uk-text-right h1 uk-width-1-1 text-white" style="width: 960px;">
+            THE BEST SERVICE AND LARGEST EQUIPMENT PROVIDER
+        </h1>
+        <button class="btn-blue uk-align-right">Inquire</button>
+    </div>-->
+
+    <div class="uk-slidenav-position" data-uk-slideshow="{height:447,autoplayInterval:4000,autoplay:true,animation:'fade'}">
+        <ul class="uk-slideshow">
+            <li><img data-bind="attr: {src:slide1}" src="assets/img/7.jpg" alt="wijati"/></li>
+            <li><img data-bind="attr: {src:slide2}" src="assets/img/6.jpg" alt="wijati"/></li>
+            <li><img data-bind="attr: {src:slide3}" src="assets/img/7.jpg" alt="wijati"/></li>
+            <li><img data-bind="attr: {src:slide4}" src="assets/img/8.jpg" alt="wijati"/></li>
+        </ul>
+        <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-flex-center bottom-20">
+            <li data-uk-slideshow-item="0"><a href=""></a></li>
+            <li data-uk-slideshow-item="1"><a href=""></a></li>
+            <li data-uk-slideshow-item="2"><a href=""></a></li>
+            <li data-uk-slideshow-item="3"><a href=""></a></li>
+        </ul>
+    </div>
+</div>
+<!--BOOK FORM-->
+<div class="lavender">
+    <div class="inner-container-width uk-container-center">
+        <h2>MAKE A RESERVATION</h2>
+        <hr class="hr-title">
+        <h3>Select a room type and set the dates.</h3>
+    </div>
+    </div>
+<div class="uk-container-center inner-container-width uk-margin-large-top uk-margin-large-bottom book">
+
+ <form>
+     <div class="uk-grid uk-grid-width-large-1-2">
+    <div class="uk-margin-small-top">
+        <div class="uk-width-1-1">
+            Start Date<input type="date" placeholder="Name" class="uk-width-1-1 uk-margin-small-bottom" required>
+            End Date<input type="date" placeholder="Mobile No." class="uk-width-1-1 uk-margin-small-bottom" required>
+            Room
+
+            <select class="uk-width-1-1 uk-margin-small-bottom" name="txtRoom">
+                <option>-- Select Cottage --</option>
+                <option value="1">Cottage 1</option>
+                <option value="2">Cottage 2</option>
+                <option value="3">Cottage 3</option>
+                <option value="4">Cottage 4</option>
+                </select>
+            </div>
+        </div>
+     <div class="uk-margin-small-top">
+         <div class="uk-width-1-1">
+             First Name<input type="text" placeholder="First Name" class="uk-width-1-1  uk-margin-small-bottom" required>
+             Last Name<input type="text" placeholder="Last Name" class="uk-width-1-1  uk-margin-small-bottom" required>
+             Mobile No<input type="text" placeholder="Mobile No." class="uk-width-1-1  uk-margin-small-bottom" required>
+             Address<input type="text" placeholder="Address" class="uk-width-1-1  uk-margin-small-bottom" required>
+             Email Address<input type="email" placeholder="Email address" class="uk-width-1-1  uk-margin-small-bottom">
+             Message<textarea placeholder="Message" class="uk-width-1-1" required></textarea>
+             <button class="uk-float-right bookbtn" type="submit">BOOK NOW</button>
+
+         </div>
+     </div>
+     </div>
+     </form>
+
+</div>
+
+
+<footer>
+    <div class="inner-container-width uk-container-center">
+        <div class="uk-grid uk-grid-width-large-1-3 uk-grid-width-medium-1-3 uk-grid-width-small-1-1">
+            <div class="uk-margin-small-top">
+                <div class="uk-width-1-1 text-white footer-col">
+                    Brgy.Masulog,La Castellana<br>
+                    Bacolod City ,Negros Oriental, Philippines<br>
+                    highlandvistaresort@yahoo.com
+                    <hr class="hr-dashed">
+                    Website &copy Julis and Aila <br>
+                    juliusbraham.neria@gmail.com
+                </div>
+            </div>
+            <div class="uk-margin-small-top">
+                <div class="uk-width-1-1 footer-col">
+                    <form>
+                        <div class="uk-grid uk-grid-width-1-2">
+
+                            <div class="form-div">
+                                <div class="uk-width-1-1">
+                                    <input type="text" placeholder="Name" class="uk-width-1-1" required>
+                                    <input type="text" placeholder="Mobile No." class="uk-width-1-1" required>
+                                    <input type="text" placeholder="Subject" class="uk-width-1-1" required>
+                                </div>
+                            </div>
+                            <div class="uk-padding-remove">
+                                <div class="uk-width-1-1">
+                                    <textarea placeholder="Message" class="uk-width-1-1" required></textarea>
+                                    <button class="uk-float-right sendbtn" type="submit">Send</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="uk-margin-small-top">
+                <div class="uk-width-1-1">
+                    LOGO
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</footer>
+
+
+<!--
+<script>window.jQuery || document.write('<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"><\/script>')</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/js/components/sticky.min..js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/js/components/slideshow.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/js/components/slideset.min.js"></script>
+-->
+
+<script>window.jQuery || document.write('<script  src="assets/js/jquery-3.2.1.min.js"><\/script>')</script>
+<script src="assets/uikit/js/uikit.min.js"></script>
+<script src="assets/uikit/js/components/sticky.min..js"></script>
+<script src="assets/uikit/js/components/slideshow.min.js"></script>
+<script src="assets/uikit/js/components/slideset.min.js"></script>
 
 </body>
 </html>
