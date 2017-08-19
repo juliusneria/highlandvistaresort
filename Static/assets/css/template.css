@@ -27,7 +27,7 @@ html,body,div,p,a,button, h1,h2,h3,h4,h5,h6,ul,li{
 }
 .navigation{
     background-color: #ffffff;
-    height: 110px;
+    height: 105px;
     z-index:100;
     position: fixed;
 }
