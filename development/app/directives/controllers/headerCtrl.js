@@ -1,7 +1,7 @@
 angular
     .module('App')
     .controller('headerCtrl',headerCtrl);
-headerCtrl.$inject = ['$localStorage'];
-function headerCtrl($localStorage) {
+headerCtrl.$inject = ['$scope','$localStorage','$state'];
+function headerCtrl($scope,$localStorage,$state) {
 
 }
