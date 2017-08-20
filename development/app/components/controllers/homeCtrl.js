@@ -4,5 +4,4 @@ angular
 homeCtrl.$inject = ['$scope','$timeout','$state','$localStorage'];
 function homeCtrl($scope, $timeout, $state,$localStorage) {
 
-
 }
