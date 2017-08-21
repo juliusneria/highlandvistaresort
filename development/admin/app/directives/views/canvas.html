@@ -1,0 +1,24 @@
+<div id="offcanvas" class="uk-offcanvas">
+    <div class="uk-offcanvas-bar">
+        <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon " data-uk-nav>
+            <li ng-class="{'uk-active': currentState == 'homeAdmin'}"><a ui-sref="homeAdmin">HOME</a></li>
+            <li ng-class="{'uk-active': currentState == 'aboutAdmin'}"><a ui-sref="aboutAdmin">ABOUT</a></li>
+            <li ng-class="{'uk-active': currentState == 'facilitiesAdmin'}"><a ui-sref="facilitiesAdmin">FACILITIES</a></li>
+            <li ng-class="{'uk-active': currentState == 'activitiesAdmin'}"><a ui-sref="activitiesAdmin">ACTIVITIES</a></li>
+            <li ng-class="{'uk-active': currentState == 'bookingsAdmin'}"><a ui-sref="bookingsAdmin">BOOKINGS</a></li>
+        </ul>
+    </div>
+</div>
+<!--left nav-->
+
+<div id="left" class="left-block uk-hidden-small uk-hidden-medium">
+    <div class="uk-text-center">
+        <ul class="uk-padding-remove">
+            <li ng-class="{'left-active': currentState == 'homeAdmin'}"><h3><a ui-sref="homeAdmin">HOME</a></h3></li>
+            <li ng-class="{'left-active': currentState == 'aboutAdmin'}"><h3><a ui-sref="aboutAdmin">ABOUT</a></h3></li>
+            <li ng-class="{'left-active': currentState == 'facilitiesAdmin'}"><h3><a ui-sref="facilitiesAdmin">FACILITIES</a></h3></li>
+            <li ng-class="{'left-active': currentState == 'activitiesAdmin'}"><h3><a ui-sref="activitiesAdmin">ACTIVITIES</a></h3></li>
+            <li ng-class="{'left-active': currentState == 'bookingsAdmin'}"><h3><a ui-sref="bookingsAdmin">BOOKINGS</a></h3></li>
+        </ul>
+    </div>
+</div>
