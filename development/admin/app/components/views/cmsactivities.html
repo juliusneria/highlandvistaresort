@@ -1,6 +1,10 @@
 <nav-dir></nav-dir>
 <canvas-dir></canvas-dir>
-<div id="contents" class="contents">
+<div class="wrapper">
+
+    <div  class="support tbl uk-hidden-small uk-hidden-medium">
+    </div>
+    <div class="contents tbl">
     <h1>ACTIVITIES</h1>
     <hr class="uk-margin-small-bottom">
     <button class="uk-button-success uk-margin-large-bottom"  data-uk-modal="{target:'#add'}" >ADD <i class="uk-icon-plus"></i></button>
@@ -22,7 +26,7 @@
         </div>
 
     </div>
-
+</div>
 </div>
 
 <div id="add" class="uk-modal">
@@ -80,10 +84,3 @@
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(myfunction);
-    $(window).on('resize',myfunction);
-    function myfunction() {
-        $("#left").height( $("#contents").height()+ 70 );
-    }
-</script>

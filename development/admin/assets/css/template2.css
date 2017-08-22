@@ -80,16 +80,24 @@ h5{ font-size: 12px;}
     background-color:  #cabdcd;
     min-height:100%;
     width:200px;
+    position:absolute;
     float:left;
+    z-index:3;
+}
+.support{
+    background-color:  #cabdcd;
+    z-index:1;
+    min-width:200px;
+
 }
 .left-block ul{
     list-style: none;
     position:fixed;
 }
 .left-block ul li{
-  padding: 20px 0 0 0;
-  width:200px;
-  border-bottom: 1px solid;
+    padding: 20px 0 0 0;
+    width:200px;
+    border-bottom: 1px solid;
 }
 .left-block li a{
     text-decoration:none;
@@ -99,12 +107,25 @@ h5{ font-size: 12px;}
     cursor:pointer;
     background-color: #ffffff;
 }
-.contents {
-    max-width: 858px;
-    position:absolute;
-    top:120px;
-    left:300px;
-    padding-right:50px;
+.wrapper{
+    display:table;
+    width:100%;
+    height:100%;
+    padding-top:70px;
+}
+.tbl {
+    display:table-cell;
+}
+/*.contents {*/
+/*max-width: 858px;*/
+/*position:absolute;*/
+/*top:120px;*/
+/*left:300px;*/
+/*padding-right:50px;*/
+/*}*/
+.contents{
+    padding:50px 50px 50px 50px;
+    width:90%;
 }
 .contents input ,textarea ,select{
     padding:5px 5px 5px 5px;
@@ -113,7 +134,7 @@ h5{ font-size: 12px;}
     border: 1px solid #ffffff;
     width:500px;
 }
- .contents input , select{
+.contents input , select{
     height: 37px;
 }
 .contents textarea {
@@ -147,10 +168,10 @@ h5{ font-size: 12px;}
 
 
 
-@media (max-width: 959px) {
-    .contents{
-       left:50px;
-    }}
+/*@media (max-width: 959px) {*/
+/*.contents{*/
+/*left:50px;*/
+/*}}*/
 @media (max-width: 729px) {
     input, textarea{
         width:100%;
@@ -165,6 +186,6 @@ h5{ font-size: 12px;}
         font-size:30px
     }
     h2{
-      font-size:  20px;
+        font-size:  20px;
     }
 }

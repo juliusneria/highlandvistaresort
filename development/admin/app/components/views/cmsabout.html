@@ -1,7 +1,11 @@
 <nav-dir></nav-dir>
 <canvas-dir></canvas-dir>
 <!--contents-->
-<div id="contents" class="contents">
+<div class="wrapper">
+
+    <div  class="support tbl uk-hidden-small uk-hidden-medium">
+    </div>
+    <div class="contents tbl">
     <h1>ABOUT</h1>
     <hr class="uk-margin-large-bottom">
     <div class="uk-grid">
@@ -77,6 +81,7 @@
 
         </tbody>
     </table>
+    </div>
 </div>
 
 <div id="edit" class="uk-modal">
@@ -107,10 +112,3 @@
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(myfunction);
-    $(window).on('resize',myfunction);
-    function myfunction() {
-        $("#left").height( $("#contents").height()+ 70 );
-    }
-</script>
