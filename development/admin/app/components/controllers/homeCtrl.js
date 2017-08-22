@@ -4,26 +4,23 @@ angular
 homeCtrl.$inject = ['$scope','uikitService','$state','$localStorage'];
 function homeCtrl($scope, uikitService, $state,$localStorage) {
 
-    $scope.heroImages = [];
-    $scope.sliderImage = null;
-    $scope.sliderTitle = null;
-    $scope.sliderDescription = null;
+    $scope.featureImages = [];
+    $scope.featureImage = null;
+    $scope.featurename = null;
 
-    retrieveAllSlider();
-    $scope.addSlider = function(){
-        $scope.sliderImage = $('#imageSlider')[0].files[0];
+    retrieveAllFeatures();
+    $scope.addFeature = function(){
+        $scope.featureImage = $('#imageFeature')[0].files[0];
 
-        if($scope.sliderTitle == null){
-            uikitService.notification('Title must specified');
-        } else if($scope.sliderImage == null){
+        if($scope.featurename == null){
+            uikitService.notification('Name must specified');
+        } else if($scope.featureImage == null){
             uikitService.notification('No Image uploaded');
-        } else if($scope.sliderDescription == null){
-            uikitService.notification('Description must specified');
         } else {
             var reader = new FileReader();
-            reader.readAsDataURL($scope.sliderImage);
+            reader.readAsDataURL($scope.featureImage);
             reader.onload = function () {
-                var file = new Parse.File($('#imageSlider')[0].files[0].name, { base64: reader.result });
+                var file = new Parse.File($('#imageFeature')[0].files[0].name, { base64: reader.result });
                 file.save({
                     success: function(file) {
                         add(file);
@@ -39,30 +36,27 @@ function homeCtrl($scope, uikitService, $state,$localStorage) {
         }
     };
 
-    $scope.editSlider = function(data){
-        $scope.editSliderItem = data;
+    $scope.editFeature = function(data){
+        $scope.editFeatureItem = data;
     };
 
-    $scope.deleteSlider = function(data, type){
-        $scope.deleteSliderItem = data;
+    $scope.deleteFeature = function(data, type){
+        $scope.deleteFeatureItem = data;
         $scope.type = type;
+        console.log($scope.deleteFeatureItem,$scope.type);
     };
 
-    $scope.updateSlider = function(){
-        $scope.editImageSlider = $('#editImageSlider')[0].files[0];
+    $scope.updateFeature = function(){
+        $scope.featureImage = $('#editImageFeature')[0].files[0];
 
-        if($scope.editSliderItem.title == ''){
-            uikitService.notification('Title must specified');
-        } else if($scope.editSliderItem.description == ''){
-            uikitService.notification('Description must specified');
-        } /* else if($scope.editImageSlider == null){
-         uikitService.notification('No Image uploaded');
-         }*/  else {
-            if($scope.editImageSlider != null){
+        if($scope.editFeatureItem.name == ''){
+            uikitService.notification('Name must specified');
+        } else {
+            if($scope.featureImage != null){
                 var reader = new FileReader();
-                reader.readAsDataURL($scope.sliderImage);
+                reader.readAsDataURL($scope.featureImage);
                 reader.onload = function () {
-                    var file = new Parse.File($('#editImageSlider')[0].files[0].name, { base64: reader.result });
+                    var file = new Parse.File($('#editImageFeature')[0].files[0].name, { base64: reader.result });
                     file.save({
                         success: function(file) {
                             edit(file);
@@ -82,27 +76,27 @@ function homeCtrl($scope, uikitService, $state,$localStorage) {
     };
 
     $scope.delete = function(){
-        if($scope.type == 'slider'){
-            destroySlider($scope.deleteSliderItem);
+        console.log($scope.deleteFeatureItem,$scope.type);
+        if ($scope.type == 'feature'){
+            destroyFeature($scope.deleteFeatureItem, $scope.type);
         }
     };
 
     function add(file){
-        var Banner = Parse.Object.extend("Banner");
-        var banner = new Banner();
-        banner.set('title',$scope.sliderTitle);
-        banner.set('description',$scope.sliderDescription);
-        banner.set('image',file);
-        banner.save({
+        var Featured = Parse.Object.extend("Featured");
+        var featured = new Featured();
+        featured.set('name',$scope.featurename);
+        featured.set('picture',file);
+        featured.save({
             success: function() {
-                var modal = UIkit.modal("#addslider");
+                var modal = UIkit.modal("#addfeature");
                 if ( modal.isActive() ) {
                     modal.hide();
                 } else {
                     modal.show();
                 }
-                uikitService.notification('Slider has been saved');
-                retrieveAllSlider();
+                uikitService.notification('Feature has been saved');
+                retrieveAllFeatures();
             },
             error:function(err){
                 uikitService.notification('Something went wrong');
@@ -111,25 +105,23 @@ function homeCtrl($scope, uikitService, $state,$localStorage) {
     }
 
     function edit(file){
-        console.log($scope.editSliderItem.id);
-        var Banner = Parse.Object.extend("Banner");
-        var banner = new Banner();
-        banner.id = $scope.editSliderItem.id
-        banner.set('title',$scope.editSliderItem.title);
-        banner.set('description',$scope.editSliderItem.description);
+        var Featured = Parse.Object.extend("Featured");
+        var featured = new Featured();
+        featured.id = $scope.editFeatureItem.id;
+        featured.set('name',$scope.editFeatureItem.name);
         if(file != null){
-            banner.set('image',file);
+            featured.set('picture',file);
         }
-        banner.save({
+        featured.save({
             success: function() {
-                var modal = UIkit.modal("#editslider");
+                var modal = UIkit.modal("#editfeature");
                 if ( modal.isActive() ) {
                     modal.hide();
                 } else {
                     modal.show();
                 }
-                uikitService.notification('Slider has been saved');
-                retrieveAllSlider();
+                uikitService.notification('Feature has been saved');
+                retrieveAllFeatures();
             },
             error:function(err){
                 uikitService.notification('Something went wrong');
@@ -137,9 +129,9 @@ function homeCtrl($scope, uikitService, $state,$localStorage) {
         })
     }
 
-    function destroySlider(data){
-        var Banner = Parse.Object.extend("Banner");
-        var query = new Parse.Query(Banner);
+    function destroyFeature(data){
+        var Featured = Parse.Object.extend("Featured");
+        var query = new Parse.Query(Featured);
         query.get(data.id, {
             success: function(yourObj) {
                 yourObj.destroy({
@@ -150,8 +142,8 @@ function homeCtrl($scope, uikitService, $state,$localStorage) {
                         } else {
                             modal.show();
                         }
-                        uikitService.notification('Slider has been removed');
-                        retrieveAllSlider();
+                        uikitService.notification('Feature has been removed');
+                        retrieveAllFeatures();
                     },
                     error: function(){
                         uikitService.notification('Something went wrong');
@@ -164,18 +156,17 @@ function homeCtrl($scope, uikitService, $state,$localStorage) {
         });
     }
 
-    function retrieveAllSlider(){
-        var classObject = Parse.Object.extend("Banner");
+    function retrieveAllFeatures(){
+        var classObject = Parse.Object.extend("Featured");
         var query = new Parse.Query(classObject);
         query.find({
             success: function(results) {
-                $scope.heroImages = [];
+                $scope.featureImages = [];
                 for(var i in results){
-                    $scope.heroImages.push({
+                    $scope.featureImages.push({
                         id: results[i].id,
-                        image: results[i].get('image'),
-                        title: results[i].get('title'),
-                        description: results[i].get('description')
+                        picture: results[i].get('picture'),
+                        name: results[i].get('name')
                     });
                 }
                 $scope.$apply();

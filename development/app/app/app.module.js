@@ -3,4 +3,5 @@ angular
     .run(myFunction);
 myFunction.$inject = ['$localStorage'];
 function myFunction($localStorage){
+
 }
