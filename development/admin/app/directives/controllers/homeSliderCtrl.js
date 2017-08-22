@@ -81,7 +81,7 @@ function homeSliderCtrl($scope, uikitService, $state,$localStorage) {
         }
     };
 
-    $scope.delete = function(){
+    $scope.dropSlider = function(){
         if($scope.type == 'slider'){
             destroySlider($scope.deleteSliderItem);
         }
@@ -144,7 +144,7 @@ function homeSliderCtrl($scope, uikitService, $state,$localStorage) {
             success: function(yourObj) {
                 yourObj.destroy({
                     success: function(){
-                        var modal = UIkit.modal("#delete");
+                        var modal = UIkit.modal("#deleteSlider");
                         if ( modal.isActive() ) {
                             modal.hide();
                         } else {
@@ -186,6 +186,4 @@ function homeSliderCtrl($scope, uikitService, $state,$localStorage) {
         });
     }
 
-}/**
- * Created by juliusneria on 8/22/17.
- */
+}
