@@ -4,7 +4,7 @@ angular
 function socialFeatureDir(){
     return {
         restrict: 'E',
-        templateUrl: 'app/directives/views/canvas.html',
+        templateUrl: 'app/directives/views/social-features.html',
         controller: 'socialFeaturesCtrl'
     };
 }

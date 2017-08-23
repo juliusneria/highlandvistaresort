@@ -8,8 +8,19 @@
         </ul>
 
         <div class="uk-float-left uk-hidden-large burger-margin">
-            <a href="#offcanvas" data-uk-offcanvas="{mode:'slide'}"><i class="uk-icon-bars uk-margin-left"></i></a>
+            <a ng-click="offCanvas()" data-uk-offcanvas="{target:'#offcanvas'}"><i class="uk-icon-bars uk-margin-left"></i></a>
         </div>
 
     </div>
 </nav>
+<div id="offcanvas" class="uk-offcanvas">
+    <div class="uk-offcanvas-bar">
+        <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon " data-uk-nav>
+            <li ng-class="{'uk-active': currentState == 'homeAdmin'}"><a ui-sref="homeAdmin">HOME</a></li>
+            <li ng-class="{'uk-active': currentState == 'aboutAdmin'}"><a ui-sref="aboutAdmin">ABOUT</a></li>
+            <li ng-class="{'uk-active': currentState == 'facilitiesAdmin'}"><a ui-sref="facilitiesAdmin">FACILITIES</a></li>
+            <li ng-class="{'uk-active': currentState == 'activitiesAdmin'}"><a ui-sref="activitiesAdmin">ACTIVITIES</a></li>
+            <li ng-class="{'uk-active': currentState == 'bookingsAdmin'}"><a ui-sref="bookingsAdmin">BOOKINGS</a></li>
+        </ul>
+    </div>
+</div>
