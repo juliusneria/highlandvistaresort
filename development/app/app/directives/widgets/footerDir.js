@@ -4,7 +4,7 @@ angular
 function footerDir(){
     return {
         restrict: 'E',
-        templateUrl: 'app/directives/views/footer.html',
+        templateUrl: 'app/directives/widgets/views/footer.html',
         controller: 'footerCtrl'
     }
 }

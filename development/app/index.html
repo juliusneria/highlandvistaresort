@@ -16,16 +16,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/css/uikit.almost-flat.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/css/components/sticky.almost-flat.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/css/components/slideshow.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/css/components/notify.almost-flat.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/css/components/dotnav.almost-flat.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/css/components/slidenav.almost-flat.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/FreddyFY/material-datepicker/master/dist/material-datepicker.css">
-    <!--offline
-    <link rel="stylesheet" href="assets/uikit/css/uikit.almost-flat.min.css"/>
-    <link rel="stylesheet" href="assets/uikit/css/components/sticky.almost-flat.min.css">
-    <link rel="stylesheet" href="assets/uikit/css/components/slideshow.min.css">
-    <link rel="stylesheet" href="assets/uikit/css/components/dotnav.almost-flat.min.css">
-    <link rel="stylesheet" href="assets/uikit/css/components/slidenav.almost-flat.min.css">
-    -->
     <link rel="stylesheet" href="assets/css/template.css"/>
 </head>
 <body class="tap">
@@ -36,6 +30,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/js/components/sticky.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/js/components/slideshow.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/js/components/slideset.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.4/js/components/notify.min.js"></script>
 <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
 <script type="text/javascript" src="https://cdn.rawgit.com/FreddyFY/material-datepicker/master/dist/material-datepicker.min.js"></script>
 
@@ -54,16 +49,26 @@
 <script src="app/components/controllers/bookCtrl.js"></script>
 <script src="app/components/controllers/aboutCtrl.js"></script>
 <!--ANGULAR DIRECTIVES-->
-<script src="app/directives/controllers/footerCtrl.js"></script>
-<script src="app/directives/controllers/headerCtrl.js"></script>
-<script src="app/directives/controllers/heroCtrl.js"></script>
-<script src="app/directives/controllers/socialFeaturesCtrl.js"></script>
-<script src="app/directives/footerDir.js"></script>
-<script src="app/directives/headerDir.js"></script>
-<script src="app/directives/heroDir.js"></script>
-<script src="app/directives/socialFeatureDir.js"></script>
+<script src="app/directives/widgets/controllers/footerCtrl.js"></script>
+<script src="app/directives/widgets/controllers/headerCtrl.js"></script>
+<script src="app/directives/widgets/controllers/heroCtrl.js"></script>
+<script src="app/directives/widgets/controllers/socialFeaturesCtrl.js"></script>
+<script src="app/directives/home/controllers/featuredCtrl.js"></script>
+<script src="app/directives/home/controllers/activitiesCtrl.js"></script>
+<script src="app/directives/home/controllers/facilitiesCtrl.js"></script>
+<script src="app/directives/about/controllers/faqCtrl.js"></script>
+
+<script src="app/directives/widgets/footerDir.js"></script>
+<script src="app/directives/widgets/headerDir.js"></script>
+<script src="app/directives/widgets/heroDir.js"></script>
+<script src="app/directives/widgets/socialFeatureDir.js"></script>
+<script src="app/directives/home/featuredDir.js"></script>
+<script src="app/directives/home/activitiesDir.js"></script>
+<script src="app/directives/home/facilitiesDir.js"></script>
+<script src="app/directives/about/faqDir.js"></script>
 
 <!--ANGULAR SERVICES-->
+<script src="app/services/uikitServices.js"></script>
 <script>if (window.module) module = window.module;</script>
 
 </body>

@@ -4,7 +4,7 @@ angular
 function headerDir(){
     return {
         restrict: 'E',
-        templateUrl: 'app/directives/views/header.html',
+        templateUrl: 'app/directives/widgets/views/header.html',
         controller: 'headerCtrl'
     };
 }

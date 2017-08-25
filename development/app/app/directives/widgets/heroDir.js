@@ -4,7 +4,7 @@ angular
 function heroDir(){
     return {
         restrict: 'E',
-        templateUrl: 'app/directives/views/hero.html',
+        templateUrl: 'app/directives/widgets/views/hero.html',
         controller: 'heroCtrl'
     };
 }

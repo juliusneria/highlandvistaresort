@@ -19,23 +19,19 @@
                     End Date<input id="endDate" type="text" ng-model="enddate" class="uk-width-1-1 date uk-margin-small-bottom" required>
                     Room
                     <select class="uk-width-1-1 uk-margin-small-bottom" name="txtRoom">
-                        <option>-- Select Cottage --</option>
-                        <option value="1">Cottage 1</option>
-                        <option value="2">Cottage 2</option>
-                        <option value="3">Cottage 3</option>
-                        <option value="4">Cottage 4</option>
+                        <option ng-repeat="data in cottages" value="{{data.id}}">{{data.name}}</option>
                     </select>
                 </div>
             </div>
             <div class="uk-margin-small-top">
                 <div class="uk-width-1-1">
-                    First Name<input type="text" ng-model="name" ng-keyup="checkCC()" ng-keypress="helloSample($event)" placeholder="First Name" class="uk-width-1-1  uk-margin-small-bottom" required>
-                    Last Name<input type="text" placeholder="Last Name" class="uk-width-1-1  uk-margin-small-bottom" required>
-                    Mobile No<input type="text" placeholder="Mobile No." class="uk-width-1-1  uk-margin-small-bottom" required>
-                    Address<input type="text" placeholder="Address" class="uk-width-1-1  uk-margin-small-bottom" required>
-                    Email Address<input type="email" placeholder="Email address" class="uk-width-1-1  uk-margin-small-bottom">
-                    Message<textarea placeholder="Message" class="uk-width-1-1" required></textarea>
-                    <button ng-click="submit()" class="uk-float-right bookbtn" type="submit">BOOK NOW</button>
+                    First Name<input type="text" ng-model="firstname" placeholder="First Name" class="uk-width-1-1  uk-margin-small-bottom" required>
+                    Last Name<input type="text" ng-model="lastname" placeholder="Last Name" class="uk-width-1-1  uk-margin-small-bottom" required>
+                    Mobile No<input type="text" ng-model="mobile" placeholder="Mobile No." class="uk-width-1-1  uk-margin-small-bottom" required>
+                    Address<input type="text" ng-model="address" placeholder="Address" class="uk-width-1-1  uk-margin-small-bottom" required>
+                    Email Address<input type="email" ng-model="email" placeholder="Email address" class="uk-width-1-1  uk-margin-small-bottom">
+                    Message<textarea ng-model="message" placeholder="Message" class="uk-width-1-1" required></textarea>
+                    <button ng-click="submit()" class="uk-float-right bookbtn" >BOOK NOW</button>
                 </div>
             </div>
         </div>
