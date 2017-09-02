@@ -1,0 +1,41 @@
+<nav-dir></nav-dir>
+<canvas-dir></canvas-dir>
+<!--contents-->
+<div class="wrapper">
+
+    <div  class="support tbl uk-hidden-small uk-hidden-medium">
+    </div>
+    <div class="contents tbl">
+        <h1>ABOUT</h1>
+        <hr class="uk-margin-large-bottom">
+        <div class="uk-grid">
+            <div class="uk-width-large-2-10 uk-width-medium-1-1">
+                <h2> Title</h2>
+            </div>
+            <div class="uk-width-large-8-10 uk-width-medium-1-1 inline">
+                <input type="text" ng-model="TITLE" placeholder="Title"><button ng-click="update('title')" class="submitbtn">Submit</button>
+            </div>
+        </div>
+        <div class="uk-grid">
+            <div class="uk-width-large-2-10 uk-width-medium-1-1">
+                <h2>Facebook</h2>
+            </div>
+            <div class="uk-width-large-8-10 uk-width-medium-1-1 inline">
+                <input type="text" ng-model="FACEBOOK" placeholder="Facebook Link"><button ng-click="update('facebook')" class="submitbtn">Submit</button>
+            </div>
+        </div>
+
+        <div class="uk-grid uk-margin-large-bottom">
+            <div class="uk-width-large-2-10 uk-width-medium-1-1">
+                <h2> Content</h2>
+            </div>
+            <div class="uk-width-large-8-10 uk-width-medium-1-1 inline">
+                <textarea ng-model="CONTENT"></textarea>
+                <button ng-click="update('content')" class="submitbtn">Submit</button>
+            </div>
+        </div>
+
+        <about-faq-dir></about-faq-dir>
+    </div>
+</div>
+

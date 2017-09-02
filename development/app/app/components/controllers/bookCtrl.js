@@ -13,6 +13,8 @@ function bookCtrl($scope, uikitService, $state,$localStorage) {
     $scope.address = '';
     $scope.email = '';
     $scope.message = '';
+    $scope.cottage = '';
+    $scope.isLoading = false;
 
     var monthpicker = new MaterialDatepicker('#startDate', {
         lang: 'en',
@@ -49,29 +51,64 @@ function bookCtrl($scope, uikitService, $state,$localStorage) {
 
 
     $scope.submit = function(){
+        $scope.isLoading = true;
         $scope.startdate = $('#startDate')[0].value;
         $scope.enddate = $('#endDate')[0].value;
-        console.log();
         if($scope.startdate === ''){
             uikitService.notification('Start date must not empty');
+            $scope.isLoading = false;
         }else if($scope.enddate === ''){
             uikitService.notification('End date must not empty');
+            $scope.isLoading = false;
         }else if(new Date($scope.startdate) > new Date($scope.enddate)){
             uikitService.notification('Invalid Schedule');
+            $scope.isLoading = false;
         }else if($scope.firstname === ''){
             uikitService.notification('Firstname must not empty');
+            $scope.isLoading = false;
         }else if($scope.lastname === ''){
             uikitService.notification('Lastname must not empty');
+            $scope.isLoading = false;
         }else if($scope.mobile === ''){
             uikitService.notification('Mobile number must not empty');
+            $scope.isLoading = false;
         }else if($scope.address === ''){
             uikitService.notification('Address must not empty');
+            $scope.isLoading = false;
         }else if($scope.email === ''){
             uikitService.notification('Email must not empty');
+            $scope.isLoading = false;
         }else if($scope.message === ''){
             uikitService.notification('Message must not empty');
+            $scope.isLoading = false;
         }else{
-            uikitService.notification('Message must not empty');
+            var Cottage = Parse.Object.extend("Cottage");
+            var cottage = new Cottage();
+            cottage.id = $scope.cottage;
+
+            var Book = Parse.Object.extend("Book");
+            var book = new Book();
+            book.set('startDate',new Date($scope.startdate));
+            book.set('endDate',new Date($scope.enddate));
+            book.set('firstname',$scope.firstname);
+            book.set('lastname',$scope.lastname);
+            book.set('mobile',$scope.mobile);
+            book.set('address',$scope.address);
+            book.set('email',$scope.email);
+            book.set('message',$scope.message);
+            book.set('cottage',cottage);
+            book.save({
+                success: function() {
+                    $scope.isLoading = false;
+                    uikitService.notification('Thank you for booking submission, stay tuned for the email updates');
+                    $scope.$apply();
+                },
+                error:function(err){
+                    $scope.isLoading = false;
+                    uikitService.notification('Something went wrong');
+                    $scope.$apply();
+                }
+            });
         }
     }
 

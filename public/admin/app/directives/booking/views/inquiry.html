@@ -1,0 +1,46 @@
+<h1>INQUIRIES</h1>
+<hr class="uk-margin-large-bottom">
+<table id="inquiries" class="uk-table uk-table-hover uk-table-striped" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th>No.</th>
+        <th>Full Name</th>
+        <th>Number</th>
+        <th>Subject</th>
+        <th>Message</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="data in inquiries">
+        <td>{{$index+1}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.mobile}}</td>
+        <td>{{data.subject}}</td>
+        <td>
+            <button ng-click="viewInquiries(data)" data-uk-modal="{target:'#viewinq'}" class="uk-button-primary uk-icon-eye "></button>
+            <button ng-click="deleteInquiry(data.id)" data-uk-modal="{target:'#delete'}" class="uk-button-danger uk-icon-close "></button>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+<div id="viewinq" class="uk-modal">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        <div class="uk-width-1-1 uk-panel info">
+            Name:<h4>{{inquiry.name}}</h4>
+            Mobile No.: <h4>{{inquiry.mobile}}</h4>
+            Subject <h4>{{inquiry.subject}}</h4>
+            Message <h4>{{inquiry.message}}</h4>
+        </div>
+    </div>
+</div>
+<div id="delete" class="uk-modal">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        <div class="uk-width-1-1 uk-panel uk-text-center">
+            <h2>Are you sure you want to delete this record?</h2>
+            <button ng-click="delete()" class="uk-button-danger">Yes</button> <button class="uk-button uk-modal-close">No</button>
+        </div>
+    </div>
+</div>

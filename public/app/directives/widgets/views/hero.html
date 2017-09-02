@@ -1,0 +1,37 @@
+<div class="uk-hidden-small" id="myId1Medium">
+    <div class="uk-width-1-1 uk-panel">
+        <div class="uk-slidenav-position" id="myId2Medium" data-uk-observe>
+            <ul class="uk-slideshow">
+                <li ng-repeat="data in heroImages">
+                    <img ng-src="{{data.image._url}}" alt="hvresort"/>
+                    <div class="hero-caption">
+                        <div class="caption"><h1 class="text-white">{{data.title}}</h1></div>
+                        <div class="caption"><h1 class="text-white">{{data.description}}</h1></div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-flex-center bottom-20">
+                <li ng-repeat="data in heroImages" data-uk-slideshow-item="{{$index}}"><a href=""></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--HERO SMALL-->
+<div class="uk-hidden-large uk-hidden-medium" id="myId1Small">
+    <div class="uk-width-1-1 uk-panel">
+        <div class="uk-slidenav-position" data-uk-observe id="myId2Small">
+            <ul class="uk-slideshow">
+                <li ng-repeat="data in heroImages">
+                    <img ng-src="{{data.image._url}}" alt="hvresort"/>
+                    <div class="hero-caption">
+                        <div class="caption"><h1 class="text-white">{{data.title}}</h1></div>
+                        <div class="caption"><h1 class="text-white">{{data.description}}</h1></div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-flex-center bottom-20">
+                <li ng-repeat="data in heroImages" data-uk-slideshow-item="{{$index}}"><a href=""></a></li>
+            </ul>
+        </div>
+    </div>
+</div>

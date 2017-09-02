@@ -1,0 +1,1 @@
+function faqCtrl(a,b){a.faq=[];var c=Parse.Object.extend("FAQ");new Parse.Query(c).find({success:function(b){for(var c in b)a.faq.push({question:b[c].get("question"),answer:b[c].get("answer")});a.$apply()},error:function(a){console.log(a)}})}angular.module("App").controller("faqCtrl",faqCtrl),faqCtrl.$inject=["$scope","$localStorage"];

@@ -1,0 +1,1 @@
+function canvasCtrl(a,b,c){a.currentState=c.current.name}angular.module("Admin").controller("canvasCtrl",canvasCtrl),canvasCtrl.$inject=["$scope","$localStorage","$state"];

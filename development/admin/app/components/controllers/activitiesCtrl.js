@@ -101,7 +101,7 @@ function activitiesCtrl($scope, uikitService, $state,$localStorage) {
             error:function(err){
                 uikitService.notification('Something went wrong');
             }
-        })
+        });
     }
 
     function edit(file){

@@ -2,3 +2,7 @@
 development/admin/app/app.module.js
 development/app/app/app.module.js
 SERVER.txt
+public/admin/app/app.module.js
+public/app/app.module.js
+development/admin/app/app.module.js
+development/app/app/app.module.js

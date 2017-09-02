@@ -1,0 +1,1 @@
+function navCtrl(a,b,c){a.currentState=c.current.name,a.logout=function(){Parse.User.logOut().then(function(a){console.log(a),c.transitionTo("login")})},a.offCanvas=function(){UIkit.offcanvas.show("#offcanvas"),UIkit.offcanvas.hide([force=!1])}}angular.module("Admin").controller("navCtrl",navCtrl),navCtrl.$inject=["$scope","$localStorage","$state"];

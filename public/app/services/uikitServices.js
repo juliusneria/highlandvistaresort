@@ -1,0 +1,1 @@
+function uikitService(){this.notification=function(a,b,c){UIkit.notify({message:'<i class=""></i><h3 class="uk-text-center uk-margin-remove text-white">'+a+"</h3>",timeout:b||2e3,pos:c||"top-center"})}}angular.module("App").service("uikitService",uikitService);

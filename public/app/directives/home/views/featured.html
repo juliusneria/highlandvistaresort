@@ -1,0 +1,15 @@
+<h2>FEATURED PHOTOS</h2>
+<div id="myId1">
+    <div class=" uk-width-small-1-1 uk-panel uk-position-relative">
+        <div class="feature-slider uk-slidenav-position" id="myId2" data-uk-observe>
+            <ul class="uk-grid uk-slideset">
+                <li ng-repeat="data in featuredRooms">
+                    <img ng-src="{{data.picture}}" alt="" class="uk-width-1-1 "/>
+                </li>
+            </ul>
+            <a class="uk-slidenav uk-slidenav-contrast text-dark aleft" data-uk-slideset-item="previous"><span class="uk-slidenav-previous"></span></a>
+            <a class="uk-slidenav uk-slidenav-contrast text-dark aright" data-uk-slideset-item="next"><span class="uk-slidenav-next"> </span></a>
+        </div>
+    </div>
+</div>
+<h2 class="uk-margin-large-top">ACTIVITIES TO TRY</h2>

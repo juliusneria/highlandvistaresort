@@ -1,0 +1,23 @@
+<div class="uk-container-center container-width uk-margin-large-bottom act-block">
+    <div class="uk-grid uk-grid-width-large-1-2 uk-grid-width-small-1-1">
+        <div ng-repeat="data in activities" class="uk-margin-small-top">
+            <div class="uk-width-1-1">
+                <a ng-click="viewPicture(data.picture)"> <img class="activities" ng-src="{{data.picture}}"></a>
+                <img class="uk-margin-small-top act-logo uk-float-left" src="assets/img/beach-512.png">
+                <div class="act-desc uk-margin-small-top">
+                    {{data.title}}
+                    <hr class="uk-margin-remove">
+                    {{data.feature}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="activity" class="uk-modal">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        <div class="uk-width-1-1 uk-panel ">
+            <img ng-src="{{picture}}">
+        </div>
+    </div>
+</div>

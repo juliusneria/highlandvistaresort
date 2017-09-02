@@ -1,0 +1,1 @@
+function homeCtrl(a,b,c,d){}angular.module("App").controller("homeCtrl",homeCtrl),homeCtrl.$inject=["$scope","$timeout","$state","$localStorage"];
