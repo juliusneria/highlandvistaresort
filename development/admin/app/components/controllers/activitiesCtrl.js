@@ -7,17 +7,21 @@ function activitiesCtrl($scope, uikitService, $state,$localStorage) {
     $scope.activityImage = null;
     $scope.activityFeature = null;
     $scope.activityTitle = null;
+    $scope.isLoadingActivity = {add:false, edit:false, delete:false};
 
     retrieveAllActivity();
     $scope.addActivity = function(){
         $scope.activityImage = $('#activityPicture')[0].files[0];
-
+        $scope.isLoadingActivity.add = true;
         if($scope.activityFeature == null){
             uikitService.notification('Feature must specified');
+            $scope.isLoadingActivity.add = false;
         } else if($scope.activityImage == null){
             uikitService.notification('No Image uploaded');
+            $scope.isLoadingActivity.add = false;
         } else if($scope.activityTitle == null){
             uikitService.notification('Title must specified');
+            $scope.isLoadingActivity.add = false;
         } else {
             var reader = new FileReader();
             reader.readAsDataURL($scope.activityImage);
@@ -48,11 +52,13 @@ function activitiesCtrl($scope, uikitService, $state,$localStorage) {
 
     $scope.updateActivity = function(){
         $scope.activityImage = $('#editImageActivity')[0].files[0];
-
+        $scope.isLoadingActivity.edit = true;
         if($scope.editActivityItem.title == ''){
             uikitService.notification('Title must specified');
+            $scope.isLoadingActivity.edit = false
         } else if($scope.editActivityItem.feature == ''){
             uikitService.notification('Feature must specified');
+            $scope.isLoadingActivity.edit = false;
         } else {
             if($scope.activityImage != null){
                 var reader = new FileReader();
@@ -78,6 +84,7 @@ function activitiesCtrl($scope, uikitService, $state,$localStorage) {
     };
 
     $scope.dropActivity = function(){
+        $scope.isLoadingActivity.delete = true;
         destroyActivity($scope.deleteActivityItem);
     };
 
@@ -96,6 +103,7 @@ function activitiesCtrl($scope, uikitService, $state,$localStorage) {
                     modal.show();
                 }
                 uikitService.notification('Activity has been saved');
+                $scope.isLoadingActivity.add = false;
                 retrieveAllActivity();
             },
             error:function(err){
@@ -122,6 +130,7 @@ function activitiesCtrl($scope, uikitService, $state,$localStorage) {
                     modal.show();
                 }
                 uikitService.notification('Activity has been saved');
+                $scope.isLoadingActivity.edit = false;
                 retrieveAllActivity();
             },
             error:function(err){
@@ -144,6 +153,7 @@ function activitiesCtrl($scope, uikitService, $state,$localStorage) {
                             modal.show();
                         }
                         uikitService.notification('Activity has been removed');
+                        $scope.isLoadingActivity.delete = false;
                         retrieveAllActivity();
                     },
                     error: function(){

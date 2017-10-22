@@ -13,7 +13,9 @@
                 <h2> Title</h2>
             </div>
             <div class="uk-width-large-8-10 uk-width-medium-1-1 inline">
-                <input type="text" ng-model="TITLE" placeholder="Title"><button ng-click="update('title')" class="submitbtn">Submit</button>
+                <input type="text" ng-model="TITLE" placeholder="Title">
+                <button ng-show="!isLoadingAbout.title" ng-click="update('title')" class="submitbtn">Submit</button>
+                <button ng-show="isLoadingAbout.title" class="submitbtn"><i class="uk-icon-spin uk-icon-spinner"></i></button>
             </div>
         </div>
         <div class="uk-grid">
@@ -21,7 +23,9 @@
                 <h2>Facebook</h2>
             </div>
             <div class="uk-width-large-8-10 uk-width-medium-1-1 inline">
-                <input type="text" ng-model="FACEBOOK" placeholder="Facebook Link"><button ng-click="update('facebook')" class="submitbtn">Submit</button>
+                <input type="text" ng-model="FACEBOOK" placeholder="Facebook Link">
+                <button ng-show="!isLoadingAbout.facebook" ng-click="update('facebook')" class="submitbtn">Submit</button>
+                <button ng-show="isLoadingAbout.facebook" class="submitbtn"><i class="uk-icon-spin uk-icon-spinner"></i></button>
             </div>
         </div>
 
@@ -31,7 +35,8 @@
             </div>
             <div class="uk-width-large-8-10 uk-width-medium-1-1 inline">
                 <textarea ng-model="CONTENT"></textarea>
-                <button ng-click="update('content')" class="submitbtn">Submit</button>
+                <button ng-show="!isLoadingAbout.content" ng-click="update('content')" class="submitbtn">Submit</button>
+                <button ng-show="isLoadingAbout.content" class="submitbtn"><i class="uk-icon-spin uk-icon-spinner"></i></button>
             </div>
         </div>
 

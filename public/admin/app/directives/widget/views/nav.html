@@ -3,7 +3,8 @@
         <!-- <a href="index.html" class="uk-float-left logo"><img src="" alt="Highland Vista Resort"/></a>-->
         <ul>
             <li class="uk-float-right  uk-margin-small-right">
-                <a ng-click="logout()"><img src="assets/img/profile.png" class="prof-small">Logout</a>
+                <a ng-show="!isLoadingLogout" ng-click="logout()"><img src="assets/img/profile.png" class="prof-small">Logout</a>
+                <a ng-show="isLoadingLogout"><img src="assets/img/profile.png" class="prof-small"><i class="uk-icon-spin uk-icon-spinner"></i></a>
             </li>
         </ul>
 

@@ -5,6 +5,7 @@ inquiryCtrl.$inject = ['$scope','uikitService','$state','$localStorage'];
 function inquiryCtrl($scope, uikitService, $state,$localStorage) {
 
     $scope.inquiries = [];
+    $scope.isLoadingInquiry = false;
     retrieveAllInquiries();
 
     $scope.viewInquiries = function(data){
@@ -15,20 +16,22 @@ function inquiryCtrl($scope, uikitService, $state,$localStorage) {
         $scope.inquiryId = data;
     };
 
-    $scope.delete = function(){
+    $scope.deleteInq = function(){
+        $scope.isLoadingInquiry = true;
         var Inquiry = Parse.Object.extend("Inquiry");
         var query = new Parse.Query(Inquiry);
         query.get($scope.inquiryId, {
             success: function(yourObj) {
                 yourObj.destroy({
                     success: function(){
-                        var modal = UIkit.modal("#delete");
+                        var modal = UIkit.modal("#deleteInq");
                         if ( modal.isActive() ) {
                             modal.hide();
                         } else {
                             modal.show();
                         }
                         uikitService.notification('Inquiry has been removed');
+                        $scope.isLoadingInquiry = false;
                         retrieveAllInquiries();
                     },
                     error: function(){

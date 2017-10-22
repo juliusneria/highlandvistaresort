@@ -30,7 +30,8 @@
                     <div class="uk-form-controls"><input id="imageSlider" type="file" class="uk-form-width-large"></div>
 
                 </div>
-                <button ng-click="addSlider()" type="submit" class="uk-margin-large-top submitbtn">Submit</button>
+                <button ng-show="!isLoadingSlider.add" ng-click="addSlider()" type="submit" class="uk-margin-large-top submitbtn">Submit</button>
+                <button ng-show="isLoadingSlider.add" type="submit" class="uk-margin-large-top submitbtn"><i class="uk-icon-spin uk-icon-spinner"></i></button>
             </form>
         </div>
     </div>
@@ -53,7 +54,8 @@
                     <div class="uk-form-controls"><input id="editImageSlider" type="file" class="uk-form-width-large"></div>
 
                 </div>
-                <button ng-click="updateSlider()" type="submit" class=" uk-margin-large-top submitbtn">Submit</button>
+                <button ng-show="!isLoadingSlider.edit" ng-click="updateSlider()" type="submit" class=" uk-margin-large-top submitbtn">Submit</button>
+                <button ng-show="isLoadingSlider.edit" type="submit" class=" uk-margin-large-top submitbtn"><i class="uk-icon-spin uk-icon-spinner"></i></button>
             </form>
         </div>
     </div>
@@ -63,7 +65,9 @@
         <a class="uk-modal-close uk-close"></a>
         <div class="uk-width-1-1 uk-panel uk-text-center">
             <h2>Are you sure you want to delete this record?</h2>
-            <button ng-click="dropSlider()" class="uk-button-danger">Yes</button> <button class="uk-button uk-modal-close">No</button>
+            <button ng-show="!isLoadingSlider.delete" ng-click="dropSlider()" class="uk-button-danger">Yes</button>
+            <button ng-show="isLoadingSlider.delete" class="uk-button uk-modal-close"><i class="uk-icon-spin uk-icon-spinner"></i></button>
+            <button class="uk-button uk-modal-close">No</button>
         </div>
     </div>
 </div>

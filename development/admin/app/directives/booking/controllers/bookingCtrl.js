@@ -5,6 +5,7 @@ bookingCtrl.$inject = ['$scope','uikitService','$state','$localStorage'];
 function bookingCtrl($scope, uikitService, $state,$localStorage) {
 
     $scope.bookings = [];
+    $scope.isLoadingBooking = false;
     retrieveAllBookings();
 
     $scope.viewBook = function(data){
@@ -15,7 +16,8 @@ function bookingCtrl($scope, uikitService, $state,$localStorage) {
         $scope.bookingId = data;
     };
 
-    $scope.delete = function(){
+    $scope.deleteBook = function(){
+        $scope.isLoadingBooking = true;
         var Book = Parse.Object.extend("Book");
         var query = new Parse.Query(Book);
         query.get($scope.bookingId, {
@@ -29,6 +31,7 @@ function bookingCtrl($scope, uikitService, $state,$localStorage) {
                             modal.show();
                         }
                         uikitService.notification('Reservation has been removed');
+                        $scope.isLoadingBooking = false;
                         retrieveAllBookings();
                     },
                     error: function(){
@@ -45,7 +48,7 @@ function bookingCtrl($scope, uikitService, $state,$localStorage) {
     function retrieveAllBookings(){
         var Book = Parse.Object.extend("Book");
         var query = new Parse.Query(Book);
-        query.include("cottage");
+        query.include("room");
         query.find({
             success: function(results) {
                 $scope.bookings = [];
@@ -60,7 +63,7 @@ function bookingCtrl($scope, uikitService, $state,$localStorage) {
                         address: results[i].get('address'),
                         email: results[i].get('email'),
                         message: results[i].get('message'),
-                        cottage: results[i].get('cottage').get("name")
+                        cottage: results[i].get('room').get("name")
                     });
                 }
                 $scope.$apply();

@@ -1,1 +1,0 @@
-function homeCtrl(a,b,c,d){}angular.module("Admin").controller("homeCtrl",homeCtrl),homeCtrl.$inject=["$scope","uikitService","$state","$localStorage"];

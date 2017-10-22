@@ -5,14 +5,73 @@ module.exports = function(grunt) {
     grunt.initConfig({
         // Task configuration.
         uglify: {
-            options: {
+            buildadmin: {
+                files: [{
+                    expand: false,
+                    src: [
+                        'development/admin/app/app.module.js',
+                        'development/admin/app/app.config.js',
+                        'development/admin/app/services/*.js',
+                        'development/admin/app/components/controllers/*.js',
+                        'development/admin/app/directives/home/*.js',
+                        'development/admin/app/directives/booking/*.js',
+                        'development/admin/app/directives/widget/*.js',
+                        'development/admin/app/directives/home/controllers/*.js',
+                        'development/admin/app/directives/booking/controllers/*.js',
+                        'development/admin/app/directives/widget/controllers/*.js'
+                    ],
+                    dest: 'public/admin/app/admin.min.js'
+                }]
+            },buildapp: {
+                files: [{
+                    expand: false,
+                    src: [
+                        'development/app/app/app.module.js',
+                        'development/app/app/app.config.js',
+                        'development/app/app/services/*.js',
+                        'development/app/app/components/controllers/*.js',
+                        'development/app/app/directives/about/*.js',
+                        'development/app/app/directives/about/controllers/*.js',
+                        'development/app/app/directives/home/*.js',
+                        'development/app/app/directives/home/controllers/*.js',
+                        'development/app/app/directives/widgets/*.js',
+                        'development/app/app/directives/widgets/controllers/*.js'
+                    ],
+                    dest: 'public/app/app.min.js'
+                }]
+            }
+            /*options: {
                 manage: false,
                 beautify: false
             },
             my_target: {
                 files: {
-                    /*ADMIN*/
-                    'public/admin/app/components/controllers/aboutCtrl.js': ['development/admin/app/components/controllers/aboutCtrl.js'],
+                    files: {
+                        'public/admin/app/admin.min.js' : [
+                            'development/admin/app/components/controllers/!*.js',
+                            'development/admin/app/directives/booking/controllers/!*.js',
+                            'development/admin/app/directives/booking/!*.js',
+                            'development/admin/app/directives/home/controllers/!*.js',
+                            'development/admin/app/directives/home/!*.js',
+                            'development/admin/app/directives/widget/controllers/!*.js',
+                            'development/admin/app/directives/widget/!*.js',
+                            'development/admin/app/services/!*.js',
+                            'development/admin/app/!*.js'
+                        ],
+                        'public/app/app.min.js' : [
+                            'development/app/app/components/controllers/!*.js',
+                            'development/app/app/directives/about/controllers/!*.js',
+                            'development/app/app/directives/about/!*.js',
+                            'development/app/app/directives/home/controllers/!*.js',
+                            'development/app/app/directives/home/!*.js',
+                            'development/app/app/directives/widgets/controllers/!*.js',
+                            'development/app/app/directives/widgets/!*.js',
+                            'development/app/app/services/!*.js',
+                            'development/app/app/!*.js'
+                        ]
+                    }
+                    /!*ADMIN*!/
+                    /!*'public/admin/app/components/controllers/aboutCtrl.js': ['development/admin/app/components/controllers/aboutCtrl.js'],
                     'public/admin/app/components/controllers/activitiesCtrl.js': ['development/admin/app/components/controllers/activitiesCtrl.js'],
                     'public/admin/app/components/controllers/bookCtrl.js': ['development/admin/app/components/controllers/bookCtrl.js'],
                     'public/admin/app/components/controllers/facilitiesCtrl.js': ['development/admin/app/components/controllers/facilitiesCtrl.js'],
@@ -36,10 +95,10 @@ module.exports = function(grunt) {
 
                     'public/admin/app/services/uikitServices.js': ['development/admin/app/services/uikitServices.js'],
                     'public/admin/app/app.config.js': ['development/admin/app/app.config.js'],
-                    'public/admin/app/app.module.js': ['development/admin/app/app.module.js'],
+                    'public/admin/app/app.module.js': ['development/admin/app/app.module.js'],*!/
 
-                    /*APP*/
-                    'public/app/components/controllers/aboutCtrl.js': ['development/app/app/components/controllers/aboutCtrl.js'],
+                    /!*APP*!/
+                    /!*'public/app/components/controllers/aboutCtrl.js': ['development/app/app/components/controllers/aboutCtrl.js'],
                     'public/app/components/controllers/bookCtrl.js': ['development/app/app/components/controllers/bookCtrl.js'],
                     'public/app/components/controllers/homeCtrl.js': ['development/app/app/components/controllers/homeCtrl.js'],
                     'public/app/directives/about/controllers/faqCtrl.js': ['development/app/app/directives/about/controllers/faqCtrl.js'],
@@ -60,11 +119,25 @@ module.exports = function(grunt) {
                     'public/app/directives/widgets/socialFeatureDir.js': ['development/app/app/directives/widgets/socialFeatureDir.js'],
                     'public/app/services/uikitServices.js': ['development/app/app/services/uikitServices.js'],
                     'public/app/app.config.js': ['development/app/app/app.config.js'],
-                    'public/app/app.module.js': ['development/app/app/app.module.js']
+                    'public/app/app.module.js': ['development/app/app/app.module.js']*!/
                 }
-            }
+            }*/
         }
     });
+    /*grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+        uglify: {
+            build: {
+                files: [{
+                    expand: true,
+                    src: '**!/!*.js',
+                    dest: 'build/scripts',
+                    cwd: 'public_html/app',
+                    ext: '.min.js'
+                }]
+            }
+        }
+    });*/
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
 

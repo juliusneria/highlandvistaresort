@@ -8,17 +8,21 @@ function homeSliderCtrl($scope, uikitService, $state,$localStorage) {
     $scope.sliderImage = null;
     $scope.sliderTitle = null;
     $scope.sliderDescription = null;
+    $scope.isLoadingSlider = {add: false, edit: false, delete: false};
 
     retrieveAllSlider();
     $scope.addSlider = function(){
         $scope.sliderImage = $('#imageSlider')[0].files[0];
-
+        $scope.isLoadingSlider.add = true;
         if($scope.sliderTitle == null){
             uikitService.notification('Title must specified');
+            $scope.isLoadingSlider.add = false;
         } else if($scope.sliderImage == null){
             uikitService.notification('No Image uploaded');
+            $scope.isLoadingSlider.add = false;
         } else if($scope.sliderDescription == null){
             uikitService.notification('Description must specified');
+            $scope.isLoadingSlider.add = false;
         } else {
             var reader = new FileReader();
             reader.readAsDataURL($scope.sliderImage);
@@ -50,14 +54,14 @@ function homeSliderCtrl($scope, uikitService, $state,$localStorage) {
 
     $scope.updateSlider = function(){
         $scope.editImageSlider = $('#editImageSlider')[0].files[0];
-
+        $scope.isLoadingSlider.edit = true;
         if($scope.editSliderItem.title == ''){
             uikitService.notification('Title must specified');
+            $scope.isLoadingSlider.edit = false;
         } else if($scope.editSliderItem.description == ''){
             uikitService.notification('Description must specified');
-        } /* else if($scope.editImageSlider == null){
-         uikitService.notification('No Image uploaded');
-         }*/  else {
+            $scope.isLoadingSlider.edit = false;
+        } else {
             if($scope.editImageSlider != null){
                 var reader = new FileReader();
                 reader.readAsDataURL($scope.sliderImage);
@@ -82,6 +86,7 @@ function homeSliderCtrl($scope, uikitService, $state,$localStorage) {
     };
 
     $scope.dropSlider = function(){
+        $scope.isLoadingSlider.delete = true;
         if($scope.type == 'slider'){
             destroySlider($scope.deleteSliderItem);
         }
@@ -102,6 +107,7 @@ function homeSliderCtrl($scope, uikitService, $state,$localStorage) {
                     modal.show();
                 }
                 uikitService.notification('Slider has been saved');
+                $scope.isLoadingSlider.add = false;
                 retrieveAllSlider();
             },
             error:function(err){
@@ -129,6 +135,7 @@ function homeSliderCtrl($scope, uikitService, $state,$localStorage) {
                     modal.show();
                 }
                 uikitService.notification('Slider has been saved');
+                $scope.isLoadingSlider.edit = false;
                 retrieveAllSlider();
             },
             error:function(err){
@@ -151,6 +158,7 @@ function homeSliderCtrl($scope, uikitService, $state,$localStorage) {
                             modal.show();
                         }
                         uikitService.notification('Slider has been removed');
+                        $scope.isLoadingSlider.delete = false;
                         retrieveAllSlider();
                     },
                     error: function(){

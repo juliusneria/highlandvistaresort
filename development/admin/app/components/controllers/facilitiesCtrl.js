@@ -9,19 +9,24 @@ function facilitiesCtrl($scope, uikitService, $state,$localStorage) {
     $scope.facilityFeature = null;
     $scope.facilityTitle = null;
     $scope.facilityDescription = null;
+    $scope.isLoadingFacilities = {add:false, edit:false, delete:false};
 
     retrieveAllFacility();
     $scope.addFacility = function(){
         $scope.facilityImage = $('#facilityPicture')[0].files[0];
-
+        $scope.isLoadingFacilities.add = true;
         if($scope.facilityFeature == null){
             uikitService.notification('Feature must specified');
+            $scope.isLoadingFacilities.add = false;
         } else if($scope.facilityImage == null){
             uikitService.notification('No Image uploaded');
+            $scope.isLoadingFacilities.add = false;
         } else if($scope.facilityTitle == null){
             uikitService.notification('Title must specified');
+            $scope.isLoadingFacilities.add = false;
         } else if($scope.facilityDescription == null){
             uikitService.notification('Description must specified');
+            $scope.isLoadingFacilities.add = false;
         } else {
             var reader = new FileReader();
             reader.readAsDataURL($scope.facilityImage);
@@ -52,13 +57,16 @@ function facilitiesCtrl($scope, uikitService, $state,$localStorage) {
 
     $scope.updateFacility = function(){
         $scope.facilityImage = $('#editImageFacility')[0].files[0];
-
+        $scope.isLoadingFacilities.edit = true;
         if($scope.editFacilityItem.title == ''){
             uikitService.notification('Title must specified');
+            $scope.isLoadingFacilities.edit = false;
         } else if($scope.editFacilityItem.feature == ''){
             uikitService.notification('Feature must specified');
+            $scope.isLoadingFacilities.edit = false;
         } else if($scope.editFacilityItem.description == ''){
             uikitService.notification('Description must specified');
+            $scope.isLoadingFacilities.edit = false;
         } else {
             if($scope.facilityImage != null){
                 var reader = new FileReader();
@@ -84,6 +92,7 @@ function facilitiesCtrl($scope, uikitService, $state,$localStorage) {
     };
 
     $scope.dropFacility = function(){
+        $scope.isLoadingFacilities.delete = true;
         destroyFacility($scope.deleteFacilityItem);
     };
 
@@ -103,6 +112,7 @@ function facilitiesCtrl($scope, uikitService, $state,$localStorage) {
                     modal.show();
                 }
                 uikitService.notification('Facility has been saved');
+                $scope.isLoadingFacilities.add = false;
                 retrieveAllFacility();
             },
             error:function(err){
@@ -130,6 +140,7 @@ function facilitiesCtrl($scope, uikitService, $state,$localStorage) {
                     modal.show();
                 }
                 uikitService.notification('Facility has been saved');
+                $scope.isLoadingFacilities.edit = false;
                 retrieveAllFacility();
             },
             error:function(err){
@@ -152,6 +163,7 @@ function facilitiesCtrl($scope, uikitService, $state,$localStorage) {
                             modal.show();
                         }
                         uikitService.notification('Facility has been removed');
+                        $scope.isLoadingFacilities.delete = false;
                         retrieveAllFacility();
                     },
                     error: function(){

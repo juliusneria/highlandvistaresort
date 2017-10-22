@@ -1,1 +1,0 @@
-function canvasDir(){return{restrict:"E",templateUrl:"app/directives/widget/views/canvas.html",controller:"canvasCtrl"}}angular.module("Admin").directive("canvasDir",canvasDir);

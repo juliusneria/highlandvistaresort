@@ -30,7 +30,7 @@ function bookCtrl($scope, uikitService, $state,$localStorage) {
         color: '#726277'
     });
 
-    var classObject = Parse.Object.extend("Cottage");
+    var classObject = Parse.Object.extend("Room");
     var query = new Parse.Query(classObject);
     query.find({
         success: function(results) {
@@ -82,9 +82,9 @@ function bookCtrl($scope, uikitService, $state,$localStorage) {
             uikitService.notification('Message must not empty');
             $scope.isLoading = false;
         }else{
-            var Cottage = Parse.Object.extend("Cottage");
-            var cottage = new Cottage();
-            cottage.id = $scope.cottage;
+            var Room = Parse.Object.extend("Room");
+            var room = new Room();
+            room.id = $scope.cottage;
 
             var Book = Parse.Object.extend("Book");
             var book = new Book();
@@ -96,7 +96,7 @@ function bookCtrl($scope, uikitService, $state,$localStorage) {
             book.set('address',$scope.address);
             book.set('email',$scope.email);
             book.set('message',$scope.message);
-            book.set('cottage',cottage);
+            book.set('room',room);
             book.save({
                 success: function() {
                     $scope.isLoading = false;

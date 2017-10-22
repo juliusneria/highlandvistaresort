@@ -3,6 +3,7 @@ angular
     .controller('aboutCtrl',aboutCtrl);
 aboutCtrl.$inject = ['$scope','uikitService','$rootScope','$http'];
 function aboutCtrl($scope, uikitService, $rootScope,$http) {
+    $scope.isLoadingAbout = {title:false, facebook:false, content:false};
 
     Parse.Config.get().then(function (config) {
         $scope.TITLE = config.get("TITLE");
@@ -15,14 +16,17 @@ function aboutCtrl($scope, uikitService, $rootScope,$http) {
 
     $scope.update = function(type){
         if(type == 'title'){
+            $scope.isLoadingAbout.title = true;
             $scope.param = {
                 TITLE: $scope.TITLE
             };
         } else if(type == 'facebook'){
+            $scope.isLoadingAbout.facebook = true;
             $scope.param = {
                 FACEBOOK: $scope.FACEBOOK
             };
         } else if(type == 'content'){
+            $scope.isLoadingAbout.content = true;
             $scope.param = {
                 CONTENT: $scope.CONTENT
             };
@@ -41,8 +45,14 @@ function aboutCtrl($scope, uikitService, $rootScope,$http) {
         };
 
         $http(config).then(function (success) {
-            console.log(success);
             uikitService.notification(jsUcfirst(type)+" has been updated");
+            if(type == 'title'){
+                $scope.isLoadingAbout.title = false;
+            } else if(type == 'facebook'){
+                $scope.isLoadingAbout.facebook = false;
+            } else {
+                $scope.isLoadingAbout.content = false;
+            }
         }, function (error) {
 
         });

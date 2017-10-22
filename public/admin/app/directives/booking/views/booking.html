@@ -44,7 +44,9 @@
         <a class="uk-modal-close uk-close"></a>
         <div class="uk-width-1-1 uk-panel uk-text-center">
             <h2>Are you sure you want to delete this record?</h2>
-            <button ng-click="delete()" class="uk-button-danger">Yes</button> <button class="uk-button uk-modal-close">No</button>
+            <button ng-show="!isLoadingBooking" ng-click="deleteBook()" class="uk-button-danger">Yes</button>
+            <button ng-show="isLoadingBooking" class="uk-button-danger"><i class="uk-icon-spin uk-icon-spinner"></i></button>
+            <button class="uk-button uk-modal-close">No</button>
         </div>
     </div>
 </div>

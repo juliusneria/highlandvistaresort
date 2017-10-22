@@ -1,1 +1,0 @@
-function aboutCtrl(a,b,c,d){a.TITLE="hell here",a.CONTENT="this is hell",Parse.Config.get().then(function(b){a.TITLE=b.get("TITLE"),a.CONTENT=b.get("CONTENT"),a.$apply()},function(a){console.log(a)})}angular.module("App").controller("aboutCtrl",aboutCtrl),aboutCtrl.$inject=["$scope","$timeout","$state","$localStorage"];

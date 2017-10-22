@@ -7,15 +7,18 @@ function homeFeatureCtrl($scope, uikitService, $state,$localStorage) {
     $scope.featureImages = [];
     $scope.featureImage = null;
     $scope.featurename = null;
+    $scope.isLoadingFeature = {add: false, edit: false, delete: false};
 
     retrieveAllFeatures();
     $scope.addFeature = function(){
         $scope.featureImage = $('#imageFeature')[0].files[0];
-
+        $scope.isLoadingFeature.add = true;
         if($scope.featurename == null){
             uikitService.notification('Name must specified');
+            $scope.isLoadingFeature.add = false;
         } else if($scope.featureImage == null){
             uikitService.notification('No Image uploaded');
+            $scope.isLoadingFeature.add = false;
         } else {
             var reader = new FileReader();
             reader.readAsDataURL($scope.featureImage);
@@ -43,13 +46,13 @@ function homeFeatureCtrl($scope, uikitService, $state,$localStorage) {
     $scope.deleteFeature = function(data, type){
         $scope.deleteFeatureItem = data;
         $scope.type = type;
-        console.log($scope.deleteFeatureItem,$scope.type);
     };
 
     $scope.updateFeature = function(){
         $scope.featureImage = $('#editImageFeature')[0].files[0];
-
+        $scope.isLoadingFeature.edit = true;
         if($scope.editFeatureItem.name == ''){
+            $scope.isLoadingFeature.edit = false;
             uikitService.notification('Name must specified');
         } else {
             if($scope.featureImage != null){
@@ -76,7 +79,7 @@ function homeFeatureCtrl($scope, uikitService, $state,$localStorage) {
     };
 
     $scope.dropFeature = function(){
-        console.log($scope.deleteFeatureItem,$scope.type);
+        $scope.isLoadingFeature.delete = true;
         if ($scope.type == 'feature'){
             destroyFeature($scope.deleteFeatureItem, $scope.type);
         }
@@ -89,6 +92,7 @@ function homeFeatureCtrl($scope, uikitService, $state,$localStorage) {
         featured.set('picture',file);
         featured.save({
             success: function() {
+                $scope.isLoadingFeature.add = false;
                 var modal = UIkit.modal("#addfeature");
                 if ( modal.isActive() ) {
                     modal.hide();
@@ -121,6 +125,7 @@ function homeFeatureCtrl($scope, uikitService, $state,$localStorage) {
                     modal.show();
                 }
                 uikitService.notification('Feature has been saved');
+                $scope.isLoadingFeature.edit = false;
                 retrieveAllFeatures();
             },
             error:function(err){
@@ -143,6 +148,7 @@ function homeFeatureCtrl($scope, uikitService, $state,$localStorage) {
                             modal.show();
                         }
                         uikitService.notification('Feature has been removed');
+                        $scope.isLoadingFeature.delete = false;
                         retrieveAllFeatures();
                     },
                     error: function(){
