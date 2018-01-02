@@ -26,7 +26,7 @@ function activitiesCtrl($scope, uikitService, $state,$localStorage) {
             var reader = new FileReader();
             reader.readAsDataURL($scope.activityImage);
             reader.onload = function () {
-                var file = new Parse.File($('#activityPicture')[0].files[0].name, { base64: reader.result });
+                var file = new Parse.File(makeid() + '_' + makeid() + '_' + makeid(), { base64: reader.result });
                 file.save({
                     success: function(file) {
                         add(file);
@@ -64,7 +64,7 @@ function activitiesCtrl($scope, uikitService, $state,$localStorage) {
                 var reader = new FileReader();
                 reader.readAsDataURL($scope.activityImage);
                 reader.onload = function () {
-                    var file = new Parse.File($('#editImageActivity')[0].files[0].name, { base64: reader.result });
+                    var file = new Parse.File(makeid() + '_' + makeid() + '_' + makeid(), { base64: reader.result });
                     file.save({
                         success: function(file) {
                             edit(file);
@@ -187,5 +187,15 @@ function activitiesCtrl($scope, uikitService, $state,$localStorage) {
                 uikitService.notification('Something went wrong');
             }
         });
+    }
+
+    function makeid() {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for (var i = 0; i < 5; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        return text;
     }
 }

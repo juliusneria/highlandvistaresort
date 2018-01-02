@@ -4,6 +4,7 @@ angular
 myFunction.$inject = ['$window','$rootScope','$location'];
 function myFunction($window,$rootScope,$location){
 
+
     Parse.initialize($rootScope.parserServer.appId, $rootScope.parserServer.javascriptKey);
     Parse.serverURL = $rootScope.parserServer.url;
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
